@@ -33,17 +33,48 @@ export default function App() {
     }
   };
 
-  const education = {
+  const education = [
+  {
     university: "순천향대학교",
     major: "정보보호학과",
-    graduation: "2026년 02월 졸업",
-    gpa: "3.65 / 4.5"
-  };
+	degree: "학사 (Bachelor of Engineering)",
+    graduation: "2026년 02월",
+    gpa: "3.67 / 4.5"
+  }
+  ];
+  
+  const careers = [
+    {
+      org: "순천향대학교 SecurityFirst",
+      role: "Digital Forensic Team",
+      period: "22.04 ~ 23.08",
+      description: "교내 정보보호 학술 동아리 활동" 
+    },
+	{
+      org: "순천향대학교 CQRE T8 Henes Team",
+      role: "Research Assistant",
+      period: "23.09 ~ 23.11",
+      description: "연구생 활동 및 연구 보조"
+    },
+    {
+      org: "순천향대학교 CQRE",
+      role: "IVI Team",
+      period: "23.10 ~ 23.12",
+      description: "자동차 IVI 분석 기술 습득"
+    },
+	{
+      org: "순천향대학교 LISA Lab",
+      role: "Undergraduate Research Intern",
+      period: "24.01 ~ 24.03",
+      description: "학부연구생 활동 및 연구 보조"
+    }
+  ];
+  
 
   const certifications = [
-    { name: "정보보안기사", issuer: "한국인터넷진흥원", date: "2025.05" },
-    { name: "개인정보관리사 (CPPG)", issuer: "한국CPO포럼", date: "2025.12" },
-    { name: "개인정보취급사 (CPPF)", issuer: "한국CPO포럼", date: "2025.05" }
+    { name: "정보보안기사", issuer: "한국방송통신전파진흥원", date: "2025.05" },
+	{ name: "개인정보취급사 (CPPF)", issuer: "한국CPO포럼", date: "2025.05" },
+    { name: "개인정보관리사 (CPPG)", issuer: "한국CPO포럼", date: "2025.12" }
   ];
 
   const trainings = [
@@ -130,13 +161,17 @@ export default function App() {
         />
         <div className="text-center z-10 px-6">
           <div className="mb-8 inline-block">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 mx-auto animate-pulse" />
+            <img
+			  src="/profile.jpg"
+			  alt="프로필 사진"
+			  className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg border-2 border-purple-400/50"
+			/>
           </div>
           <h2 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-[gradient_3s_ease-in-out_infinite]">
             안녕하세요
           </h2>
           <p className="text-2xl md:text-3xl text-gray-300 mb-8">
-            디지털 포렌식 보안 전문가입니다
+            디지털 포렌식을 전공하고 있는 학생입니다
           </p>
           <button
             onClick={() => scrollToSection('about')}
@@ -155,7 +190,7 @@ export default function App() {
           <h3 className="text-5xl font-bold mb-12 text-center">소개</h3>
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-purple-500/20 shadow-2xl">
             <p className="text-xl text-gray-300 leading-relaxed mb-6">
-              안녕하세요! 저는 디지털 포렌식 분야의 보안 전문가입니다. 
+              안녕하세요! 저는 디지털 포렌식 분야를 전공하고 있는 학생입니다
               디지털 증거 분석과 사이버 보안에 열정을 가지고 있으며, 복잡한 보안 사건을 해결하는 것을 좋아합니다.
             </p>
             <p className="text-xl text-gray-300 leading-relaxed">
@@ -193,28 +228,81 @@ export default function App() {
         </div>
       </section>
 
-      <section id="education" className="min-h-screen flex items-center py-20">
+		  <section id="education" className="min-h-screen flex items-center py-20">
         <div className="max-w-6xl mx-auto px-6 w-full">
           <h3 className="text-5xl font-bold mb-16 text-center">학력 및 경력</h3>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-purple-500/20 shadow-2xl mb-12">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="bg-purple-600 p-3 rounded-xl">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                </svg>
+          {/* 1. 학위 리스트 (학력) */}
+          <div className="space-y-8 mb-12">
+            {education.map((edu, index) => (
+              <div key={index} className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-purple-500/20 shadow-2xl transition-all hover:border-purple-500/40">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+                  <div className="bg-gradient-to-br from-purple-600 to-pink-600 p-4 rounded-2xl">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                      <path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                    </svg>
+                  </div>
+
+                  <div className="flex-1 text-center md:text-left">
+                    <div className="flex flex-col md:flex-row md:items-end gap-3 mb-4">
+                      <h4 className="text-3xl font-bold text-white">{edu.university}</h4>
+                      <span className="text-lg text-purple-400 font-medium">{edu.major}</span>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
+                      <div className="space-y-2">
+                        <p><span className="inline-block w-20 text-purple-400 font-semibold">학위</span> {edu.degree}</p>
+                        <p><span className="inline-block w-20 text-purple-400 font-semibold">졸업</span> {edu.graduation}</p>
+                      </div>
+                      <div className="md:text-right">
+                        <span className="bg-purple-600/20 px-4 py-2 rounded-xl border border-purple-500/30 font-bold text-purple-300">
+                          GPA: {edu.gpa}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex-1">
-                <h4 className="text-2xl font-bold mb-2">{education.university}</h4>
-                <p className="text-xl text-purple-300 mb-2">{education.major}</p>
-                <p className="text-gray-300">{education.graduation}</p>
-                <p className="text-gray-300">학점: {education.gpa}</p>
-              </div>
-            </div>
+            ))}
           </div>
 
+          {/* 2. 경력 리스트 (새로 추가된 부분) */}
+          <div className="mb-20">
+             <h4 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                <span className="bg-purple-600 p-2 rounded-lg">
+                  {/* 서류가방 아이콘 */}
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                경력 및 동아리 활동
+              </h4>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {careers.map((career, index) => (
+                  <div key={index} className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 hover:border-purple-500/50 transition-all hover:scale-[1.02]">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h5 className="text-2xl font-bold text-white mb-1">{career.org}</h5>
+                        <p className="text-purple-400 font-medium">{career.role}</p>
+                      </div>
+                      <span className="text-sm text-gray-400 bg-slate-900/50 px-3 py-1 rounded-full border border-purple-500/30">
+                        {career.period}
+                      </span>
+                    </div>
+                    {/* 설명이 있을 경우에만 표시 */}
+                    {career.description && (
+                       <p className="text-gray-300 text-sm">{career.description}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+          </div>
+
+          {/* 3. 자격증 및 교육 활동 그리드 */}
           <div className="grid md:grid-cols-2 gap-8">
+            {/* 자격증 컬럼 */}
             <div>
               <h4 className="text-3xl font-bold mb-6 flex items-center gap-3">
                 <span className="bg-purple-600 p-2 rounded-lg">
@@ -238,6 +326,7 @@ export default function App() {
               </div>
             </div>
 
+            {/* 교육 및 활동 컬럼 */}
             <div>
               <h4 className="text-3xl font-bold mb-6 flex items-center gap-3">
                 <span className="bg-purple-600 p-2 rounded-lg">
