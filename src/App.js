@@ -103,13 +103,13 @@ export default function App() {
   const projects = [
     {
       title: "Defohari Auto Analyzer",
-      description: "Defohari 아티팩트 자동 분석 도구",
+      description: "Python 기반 윈도우 아티팩트 자동 수집 및 파싱 엔진 개발",
       tags: ["Artifact Analysis", "Automation", "Python"],
       link: "https://github.com/berm0427/defohari_auto_artifact_analyzer"
     },
     {
       title: "Mail Detection",
-      description: "악성 이메일 탐지 및 분석 시스템",
+      description: "헤더-바디 연관 분석 기반 악성 메일 탐지 및 인텔리전스 시스템",
       tags: ["Email Forensics", "Malware Detection", "Security"],
       link: "https://github.com/berm0427/mail_detection"
     }
