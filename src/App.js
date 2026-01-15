@@ -162,7 +162,7 @@ export default function App() {
         <div className="text-center z-10 px-6">
           <div className="mb-8 inline-block">
             <img
-			  src="/profile.jpg"
+			  src={process.env.PUBLIC_URL + "/profile.jpg"}
 			  alt="프로필 사진"
 			  className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg border-2 border-purple-400/50"
 			/>
