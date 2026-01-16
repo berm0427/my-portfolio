@@ -73,7 +73,6 @@ export default function App() {
 
   const certifications = [
     { name: "정보보안기사", issuer: "한국방송통신전파진흥원", date: "2025.05" },
-	{ name: "개인정보취급사 (CPPF)", issuer: "한국CPO포럼", date: "2025.05" },
     { name: "개인정보관리사 (CPPG)", issuer: "한국CPO포럼", date: "2025.12" }
   ];
 
