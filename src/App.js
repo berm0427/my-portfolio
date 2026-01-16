@@ -59,7 +59,7 @@ export default function App() {
     {
       org: "순천향대학교 CQRE",
       role: "IVI Team",
-      period: "23.10 ~ 23.12",
+      period: "23.09 ~ 23.12",
       description: "자동차 IVI 분석 기술 습득"
     },
 	{
