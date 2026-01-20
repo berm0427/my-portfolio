@@ -39,7 +39,7 @@ export default function App() {
     major: "정보보호학과",
 	degree: "학사 (Bachelor of Engineering)",
     graduation: "2026년 02월",
-    gpa: "3.67 / 4.5"
+    gpa: "3.66 / 4.5"
   }
   ];
   
