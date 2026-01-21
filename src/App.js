@@ -40,6 +40,13 @@ export default function App() {
 	degree: "학사 (Bachelor of Engineering)",
     graduation: "2026년 02월",
     gpa: "3.66 / 4.5"
+  },
+  {
+    university: "순천향대학교",
+    major: "경찰행정학과",
+	degree: "학사 (Bachelor of Arts in Police Studies)",
+    graduation: "2026년 02월",
+    gpa: "3.66 / 4.5"
   }
   ];
   
