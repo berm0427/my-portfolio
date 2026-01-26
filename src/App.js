@@ -116,7 +116,7 @@ export default function App() {
     {
       title: "Mail Detection",
       description: "헤더-바디 연관 분석 기반 악성 메일 탐지 시스템",
-      tags: ["Email Forensics", "Malware Detection", "Security"],
+      tags: ["Email Forensics", "Phishing Mail Detection", "Security"],
       link: "https://github.com/berm0427/mail_detection"
     }
   ];
